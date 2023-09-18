@@ -1,10 +1,5 @@
 ﻿using NLayer.Core.UnitOfWorks;
 using NLayer.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NLayerApp.Repository.UnitOfWorks
 {

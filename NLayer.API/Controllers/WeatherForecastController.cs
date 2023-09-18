@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace NLayerApp.API.Controllers
+namespace NLayer.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

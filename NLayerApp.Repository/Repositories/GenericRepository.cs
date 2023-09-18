@@ -7,18 +7,21 @@ namespace NLayerApp.Repository.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected readonly AppDbContext _dbContext;
+        protected readonly AppDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public GenericRepository(AppDbContext dbContext, DbSet<T> dbSet)
+        public GenericRepository(AppDbContext context)
         {
-            _dbContext = dbContext;
-            _dbSet = dbSet;
+            _context = context;
+            _dbSet = _context.Set<T>();
         }
 
         public async Task AddAsync(T entity)
         {
+
             await _dbSet.AddAsync(entity);
+
+
         }
 
         public async Task AddRangeAsync(IEnumerable<T> entities)
@@ -26,12 +29,12 @@ namespace NLayerApp.Repository.Repositories
             await _dbSet.AddRangeAsync(entities);
         }
 
-        public async Task AnyAsync(Expression<Func<T, bool>> expression)
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>> expression)
         {
-            await _dbSet.AnyAsync(expression);
+            return await _dbSet.AnyAsync(expression);
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetAll()
         {
             return _dbSet.AsNoTracking().AsQueryable();
         }
@@ -43,6 +46,7 @@ namespace NLayerApp.Repository.Repositories
 
         public void Remove(T entity)
         {
+
             _dbSet.Remove(entity);
         }
 

@@ -1,14 +1,11 @@
-﻿namespace NLayer.Core
+﻿namespace NLayer.Core.Dtos
 {
-    public class ProductFeature
+    public class ProductFeatureDto
     {
         public int Id { get; set; }
         public string Color { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
-
-        //Navigation Property
         public int ProductId { get; set; }
-        public Product Product { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace NLayer.Core
+﻿namespace NLayer.Core.Models
 {
     public class Product : BaseEntity
     {
@@ -9,6 +9,6 @@
         //Navigation Property
         public int CategoryId { get; set; }
         public Category Category { get; set; }
-        public ProductFeature ProductFeature { get; set; }  
+        public ProductFeature ProductFeature { get; set; }
     }
 }
