@@ -7,8 +7,7 @@ using NLayer.Core.Services;
 
 namespace NLayer.API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+
     public class ProductsController : CustomBaseController
     {
         private readonly IProductService _productService;
@@ -62,7 +61,6 @@ namespace NLayer.API.Controllers
 
             return CreateActionResult(CustomResponseDto<NoContentDto>.Success(204));
         }
-
 
         [HttpGet("[action]")]
         public async Task<IActionResult> GetProductGetCategory()
