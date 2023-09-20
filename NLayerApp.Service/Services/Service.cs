@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NLayer.API.Middlewares;
 using NLayer.Core.Repositories;
 using NLayer.Core.Services;
 using NLayer.Core.UnitOfWorks;
@@ -16,8 +17,6 @@ namespace NLayer.Service.Services
             _repository = repository;
             _unitOfWork = unitOfWork;
         }
-
-
 
         public async Task<T> AddAsync(T entity)
         {
@@ -49,7 +48,7 @@ namespace NLayer.Service.Services
 
             if (hasProduct == null)
             {
-                throw new Exception($"{typeof(T).Name}({id}) not found");
+                throw new NotFoundException($"{typeof(T).Name}({id}) not found");
             }
             return hasProduct;
         }
