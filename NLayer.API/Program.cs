@@ -6,15 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using NLayer.API.Filters;
 using NLayer.API.Middlewares;
 using NLayer.API.Modules;
-using NLayer.Core.Repositories;
-using NLayer.Core.Services;
-using NLayer.Core.UnitOfWorks;
 using NLayer.Repository;
-using NLayer.Service.Services;
-using NLayerApp.Repository.Repositories;
-using NLayerApp.Repository.UnitOfWorks;
 using NLayerApp.Service.Mapping;
-using NLayerApp.Service.Services;
 using NLayerApp.Service.Validations;
 using System.Reflection;
 
@@ -32,6 +25,7 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMemoryCache();
 
 builder.Services.AddScoped(typeof(NotFoundFilter<>));
 builder.Services.AddAutoMapper(typeof(MapProfile));
